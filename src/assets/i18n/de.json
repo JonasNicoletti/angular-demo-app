@@ -1,0 +1,11 @@
+{
+    "header": {
+        "text": "Sprache ändern"
+    },
+    "content": {
+      "text": "dies ist der Inhalt der Appapp"
+    },
+    "footer": {
+      "text": "dies ist die Fußzeile"
+    }
+}

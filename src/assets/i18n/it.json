@@ -1,0 +1,12 @@
+{
+  "header": {
+    "text": "cambia lingua"
+  },
+  "content": {
+    "text": "questo é il contenuto della app"
+  },
+  "footer": {
+    "text": "questo é il footer"
+  }
+  
+}
