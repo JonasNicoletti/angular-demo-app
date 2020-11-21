@@ -9,14 +9,31 @@ import { TranslateService } from '@ngx-translate/core';
 export class HeaderComponent implements OnInit {
 
   constructor(public translate: TranslateService) {
-    translate.addLangs(['en', 'de', 'it']);
-    translate.setDefaultLang('en');
+    const user_lang_preference = this.getUserLangPref();
 
-    const browserLang = translate.getBrowserLang();
-    translate.use(browserLang.match(/en|de|it/) ? browserLang : 'en');
+    translate.addLangs(['en', 'de', 'it']);
+    translate.setDefaultLang(user_lang_preference);
+
+    translate.use(user_lang_preference);
   }
 
   ngOnInit(): void {
+  }
+
+  changeLanguage(lang: string): void {
+    this.translate.use(lang);
+    localStorage.setItem('user-lang', lang);
+  }
+
+  getUserLangPref(): string {
+
+    const localStorageLang = localStorage.getItem('user-lang');
+    if (localStorageLang) return localStorageLang;
+
+    const browserLang = this.translate.getBrowserLang();
+    if (browserLang) return browserLang;
+
+    return 'en';
   }
 
 }
